@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Generator</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="main">
+        <div class="input">
+        <p style="font-size: 3rem; color: black; font-weight: bold; padding-top: 0px; padding-bottom: 50px;">QR Code Generate</p>
+        <input type="text" id="qr-data" onchange="generateQR()" placeholder="Type text or link here">
+        </div>
+        <div class="qr">
+            <p style="font-size: 1rem; color: black; font-weight: 400; padding: 0px 10px 20px 100px;">Your QR will show here</p>
+            <div id="qrcode">
+                <img src="qr-devault.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        Made by Shirro
+    </div>
+</body>
+
+    <script src="main.js"></script>
+    <script>
+        var qrdata = document.getElementById('qr-data');
+        var qrcode = new QRCode(document.getElementById('qrcode'));
+
+        function generateQR() {
+            var data = qrdata.value;
+            qrcode.makeCode(data);
+        }
+    </script>
+
+</html>
